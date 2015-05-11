@@ -1,0 +1,27 @@
+﻿<MACtrl:MetroWindow x:Class="LiveClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:MACtrl="http://metro.mahapps.com/winfx/xaml/controls"
+                    WindowStartupLocation="CenterScreen" FontSize="14"
+                    BorderThickness="1" BorderBrush="{StaticResource AccentColorBrush}"
+                    ShowMaxRestoreButton="False"
+        Title="MainWindow" Height="600" Width="800">
+    <MACtrl:MetroWindow.RightWindowCommands>
+        <MACtrl:WindowCommands>
+            <StackPanel  Orientation="Horizontal" Background="Transparent" VerticalAlignment="Bottom">
+                <Menu Background="Transparent">
+                    <MenuItem Header="︾" Background="{StaticResource ResourceKey=AccentColorBrush}">
+                        <MenuItem Header="系统设置" Click="MenuItem_Click" CommandParameter="config"></MenuItem>
+                        <MenuItem Header="使用教程" Click="MenuItem_Click" CommandParameter="help"></MenuItem>
+                        <MenuItem Header="意见反馈" Click="MenuItem_Click" CommandParameter="feedback"></MenuItem>
+                        <MenuItem Header="系统更新" Click="MenuItem_Click" CommandParameter="update"></MenuItem>
+                        <MenuItem Header="我要退出" Click="MenuItem_Click" CommandParameter="exit"></MenuItem>
+                    </MenuItem>
+                </Menu>
+            </StackPanel>
+        </MACtrl:WindowCommands>
+    </MACtrl:MetroWindow.RightWindowCommands>
+    <Grid>
+        
+    </Grid>
+</MACtrl:MetroWindow>
