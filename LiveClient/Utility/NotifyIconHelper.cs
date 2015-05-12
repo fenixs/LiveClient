@@ -142,7 +142,7 @@ namespace LiveClient.Utility
                 _NotifyIcon.BalloonTipText = text;
                 _NotifyIcon.BalloonTipTitle = title;
                 _NotifyIcon.BalloonTipIcon = ToolTipIcon.None;
-                _NotifyIcon.ShowBalloonTip(2000);
+                _NotifyIcon.ShowBalloonTip(1000);
             }
             catch
             {

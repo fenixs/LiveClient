@@ -5,7 +5,7 @@
                     WindowStartupLocation="CenterScreen" FontSize="14"
                     BorderThickness="1" BorderBrush="{StaticResource AccentColorBrush}"
                     ShowMaxRestoreButton="False"
-        Title="MainWindow" Height="600" Width="800">
+        Title="" Height="600" Width="800" Icon="Resources/LiveClientNormal.png">
     <MACtrl:MetroWindow.RightWindowCommands>
         <MACtrl:WindowCommands>
             <StackPanel  Orientation="Horizontal" Background="Transparent" VerticalAlignment="Bottom">
@@ -21,6 +21,12 @@
             </StackPanel>
         </MACtrl:WindowCommands>
     </MACtrl:MetroWindow.RightWindowCommands>
+    
+    <MACtrl:MetroWindow.LeftWindowCommands>
+        <MACtrl:WindowCommands>
+            
+        </MACtrl:WindowCommands>
+    </MACtrl:MetroWindow.LeftWindowCommands>
     <Grid>
         
     </Grid>

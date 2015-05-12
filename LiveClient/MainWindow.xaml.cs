@@ -25,7 +25,9 @@ namespace LiveClient
         {
             InitializeComponent();
         }
-        
+
+
+        #region "菜单事件"
         /// <summary>
         /// 菜单事件
         /// </summary>
@@ -34,19 +36,21 @@ namespace LiveClient
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             MenuItem menu = sender as MenuItem;
-            if(menu!=null)
+            if (menu != null)
             {
                 string param = menu.CommandParameter.ToString();
-                switch(param)
+                switch (param)
                 {
                     case "exit":
                         {
-
+                            BackgroundWindow.ExitApp();
                             break;
                         }
                 }
             }
         }
+        #endregion
+        
 
     }
 }

@@ -40,8 +40,10 @@ namespace LiveClient
             else
             {
                 OnInit();
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
+                Login login = new Login();
+                login.Show();
+                //MainWindow mainWindow = new MainWindow();
+                //mainWindow.Show();
             }
         }
 
