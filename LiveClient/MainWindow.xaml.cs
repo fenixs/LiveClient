@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using MahApps.Metro;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace LiveClient
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
 
@@ -44,6 +46,22 @@ namespace LiveClient
                     case "exit":
                         {
                             BackgroundWindow.ExitApp();
+                            break;
+                        }
+                    case "config":
+                        {
+                            break;
+                        }
+                    case "help":
+                        {
+                            break;
+                        }
+                    case "feedback":
+                        {
+                            break;
+                        }
+                    case "update":
+                        {
                             break;
                         }
                 }

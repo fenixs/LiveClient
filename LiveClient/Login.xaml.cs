@@ -31,6 +31,13 @@ namespace LiveClient
             InitializeComponent();
             this.btnLogin.Click += btnLogin_Click;
             this.btnAnchor.Click += btnAnchor_Click;
+            this.Loaded += Login_Loaded;
+            
+        }
+
+        void Login_Loaded(object sender, RoutedEventArgs e)
+        {
+           
         }
 
         void btnAnchor_Click(object sender, RoutedEventArgs e)
@@ -41,11 +48,17 @@ namespace LiveClient
         void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             //TODO:暂时直接跳转，具体登录逻辑出来后再修改
+            DirectToMainWindow();
+        }
+
+        void DirectToMainWindow()
+        {
+            this.Hide();
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             BackgroundWindow bgWindow = new BackgroundWindow();
             bgWindow.Show();
-            this.Hide();
+            
         }
     }
 }

@@ -4,11 +4,12 @@
         xmlns:MACtrl="http://metro.mahapps.com/winfx/xaml/controls"
                     WindowStartupLocation="CenterScreen" FontSize="14"
                     BorderThickness="1" BorderBrush="{StaticResource AccentColorBrush}"
-                    ShowMaxRestoreButton="False"
+                    ShowMaxRestoreButton="False" FontFamily="Arial,Microsoft YaHei"
         Title="" Height="600" Width="800" Icon="Resources/LiveClientNormal.png">
     <MACtrl:MetroWindow.RightWindowCommands>
         <MACtrl:WindowCommands>
             <StackPanel  Orientation="Horizontal" Background="Transparent" VerticalAlignment="Bottom">
+                
                 <Menu Background="Transparent">
                     <MenuItem Header="︾" Background="{StaticResource ResourceKey=AccentColorBrush}">
                         <MenuItem Header="系统设置" Click="MenuItem_Click" CommandParameter="config"></MenuItem>
@@ -22,12 +23,78 @@
         </MACtrl:WindowCommands>
     </MACtrl:MetroWindow.RightWindowCommands>
     
-    <MACtrl:MetroWindow.LeftWindowCommands>
-        <MACtrl:WindowCommands>
-            
-        </MACtrl:WindowCommands>
-    </MACtrl:MetroWindow.LeftWindowCommands>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
         
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*"></ColumnDefinition>
+                <ColumnDefinition Width="30*"></ColumnDefinition>
+                <ColumnDefinition Width="32*"></ColumnDefinition>
+                <ColumnDefinition Width="30*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button Width="40" Height="40" Style="{StaticResource MetroCircleButtonStyle}" Background="Gray" x:Name="btnVideoList">
+                    <Button.Content>
+                        <Path Data="M17.324007,35.400009L64.000006,35.400009 64.000006,42.232008 17.324007,42.232008z M5.2069941,33.610014C8.0759916,33.610014 10.410989,35.950459 10.410989,38.821003 10.410989,41.701551 8.0759916,44.01199 5.2069941,44.01199 2.3279972,44.01199 0,41.701551 0,38.821003 0,35.950459 2.3279972,33.610014 5.2069941,33.610014z M17.324007,17.970008L64.000006,17.970008 64.000006,24.802009 17.324007,24.802009z M5.2069941,16.169955C8.0759916,16.169955 10.410989,18.500199 10.410989,21.3805 10.410989,24.2608 8.0759916,26.581043 5.2069941,26.581043 2.3279972,26.581043 0,24.2608 0,21.3805 0,18.500199 2.3279972,16.169955 5.2069941,16.169955z M17.324007,1.6500092L64.000006,1.6500092 64.000006,8.4820089 17.324007,8.4820089z M5.2069941,0C8.0759916,0 10.410989,2.3204374 10.410989,5.2109833 10.410989,8.0815248 8.0759916,10.411965 5.2069941,10.411965 2.3279972,10.411965 0,8.0815248 0,5.2109833 0,2.3204374 2.3279972,0 5.2069941,0z" 
+                              Stretch="Uniform" Fill="#FFFFFFFF" Width="24" Height="24" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <RotateTransform Angle="0" />
+                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Button.Content>
+                </Button>
+                <TextBlock Text="我的录像" FontSize="10" HorizontalAlignment="Center"></TextBlock>
+            </StackPanel>
+            <Grid Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="Button" BasedOn="{StaticResource SquareButtonStyle}">
+                        <Setter Property="Width" Value="65"></Setter>
+                        <Setter Property="Height" Value="40"></Setter>
+                        <Setter Property="FontSize" Value="12"></Setter>
+                    </Style>
+                </Grid.Resources>
+                <Button x:Name="btnAddGame" Content="添加游戏"  ></Button>
+                <Button x:Name="btnAddScreen" Content="添加屏幕"    Grid.Column="1"></Button>
+                <Button x:Name="btnAddMobileGame" Content="添加手游"   Grid.Column="2"></Button>
+            </Grid>
+           
+            
+            <StackPanel Orientation="Horizontal" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel.Resources>
+                    <Style TargetType="Button" BasedOn="{StaticResource AccentedSquareButtonStyle}">
+                        <Setter Property="Width" Value="60"></Setter>
+                        <Setter Property="Height" Value="50"></Setter>     
+                        <Setter Property="FontWeight" Value="Thin"></Setter>
+                        <Setter Property="FontSize" Value="12"></Setter>
+                    </Style>
+                </StackPanel.Resources>
+                <Button x:Name="btnInsertText" Content="插入文字" BorderThickness="1 1 0 1"></Button>
+                <Button x:Name="btnInsertImage" Content="插入图片"  BorderThickness="1 1 0 1"></Button>
+                <Button x:Name="btnInsertVideo" Content="插入视频"  BorderThickness="1 1 0 1"></Button>
+                <Button x:Name="btnInsertCam" Content="插入摄像头" BorderThickness="1"></Button>
+            </StackPanel>
+            
+            <Grid Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                
+            </Grid>
+        </Grid>
     </Grid>
 </MACtrl:MetroWindow>
