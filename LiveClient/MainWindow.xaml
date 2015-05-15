@@ -93,7 +93,12 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                
+                <Grid>
+                    <CheckBox x:Name="cbRecordSynchronously" Content="同时录制" HorizontalAlignment="Right"></CheckBox>
+                </Grid>
+                <Grid>
+                    <TextBlock x:Name="tbTimeLine" Text="00:00"></TextBlock>
+                </Grid>
             </Grid>
         </Grid>
     </Grid>
