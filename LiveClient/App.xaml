@@ -9,7 +9,7 @@
                 <ResourceDictionary Source="pack://application:,,,/LiveClient;component/Styles/Colors.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="pack://application:,,,/LiveClient;component/Styles/Controls.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="pack://application:,,,/LiveClient;component/Styles/Fonts.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="pack://application:,,,/LiveClient;component/Styles/Accents/Cobalt.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/LiveClient;component/Styles/Accents/BaseDark.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

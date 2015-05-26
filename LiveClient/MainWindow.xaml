@@ -4,14 +4,14 @@
         xmlns:MACtrl="http://metro.mahapps.com/winfx/xaml/controls"
                     WindowStartupLocation="CenterScreen" FontSize="14"
                     BorderThickness="1" BorderBrush="{StaticResource AccentColorBrush}"
-                    ShowMaxRestoreButton="False" FontFamily="Arial,Microsoft YaHei"
+                    ShowMaxRestoreButton="False" FontFamily="Arial,Microsoft YaHei" ShowTitleBar="False"
         Title="" Height="600" Width="800" Icon="Resources/LiveClientNormal.png">
     <MACtrl:MetroWindow.RightWindowCommands>
         <MACtrl:WindowCommands>
             <StackPanel  Orientation="Horizontal" Background="Transparent" VerticalAlignment="Bottom">
                 
                 <Menu Background="Transparent">
-                    <MenuItem Header="︾" Background="{StaticResource ResourceKey=AccentColorBrush}">
+                    <MenuItem Header="︾" Background="{StaticResource ResourceKey=MenuBackgroundBrush}">
                         <MenuItem Header="系统设置" Click="MenuItem_Click" CommandParameter="config"></MenuItem>
                         <MenuItem Header="使用教程" Click="MenuItem_Click" CommandParameter="help"></MenuItem>
                         <MenuItem Header="意见反馈" Click="MenuItem_Click" CommandParameter="feedback"></MenuItem>
