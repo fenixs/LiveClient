@@ -1,4 +1,6 @@
 ﻿using LiveClient.Utility;
+using Microsoft.Shell;
+using SimpleMusicPlayer.Core;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -13,31 +15,18 @@ namespace LiveClient
     /// <summary>
     /// App.xaml 的交互逻辑
     /// </summary>
-    public partial class App : Application
+    public partial class App : Application,ISingleInstanceApp
     {
-        /// <summary>
-        /// 单实例运行
-        /// </summary>
-        Mutex _mutex;
+        
 
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
-            bool startUpFlag = false;
+            
 
-            _mutex = new Mutex(true, PubModel.__APPNAME, out startUpFlag);
-            if(!startUpFlag)
-            {
-                if(!PubModel.__IsMainWindow)
-                {
-                    PubModel.__IsMainWindow = true;
-                    //TODO:激活已经运行实例
-                }
-                MessageBox.Show("程序已经运行");
-                Environment.Exit(0);
-            }
-            else
+            
+           
             {
                 OnInit();
                 Login login = new Login();
@@ -79,5 +68,24 @@ namespace LiveClient
             base.OnExit(e);
         }
 
+
+        /// <summary>
+        /// 已经有实例运行时候，新打开的操作
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        public bool SignalExternalCommandLineArgs(IList<string> args)
+        {
+            if(this.MainWindow.WindowState == WindowState.Minimized)
+            {
+                WindowExtensions.Unminimize(this.MainWindow);       //最小化变成最大化
+                
+            }
+            else
+            {
+                WindowExtensions.ShowAndActivate(this.MainWindow);  //后台时候激活窗口
+            }
+            return true;
+        }
     }
 }

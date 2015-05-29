@@ -3,15 +3,28 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:MACtrl="http://metro.mahapps.com/winfx/xaml/controls"
                     WindowStartupLocation="CenterScreen" FontSize="14"
-                    BorderThickness="1" BorderBrush="{StaticResource AccentColorBrush}"
-                    ShowMaxRestoreButton="False" FontFamily="Arial,Microsoft YaHei" ShowTitleBar="False"
+                    BorderThickness="0" BorderBrush="{StaticResource AccentColorBrush}"
+                    ShowMaxRestoreButton="False" FontFamily="Arial,Microsoft YaHei" ShowTitleBar="False" Padding="2"
         Title="" Height="600" Width="800" Icon="Resources/LiveClientNormal.png">
     <MACtrl:MetroWindow.RightWindowCommands>
         <MACtrl:WindowCommands>
             <StackPanel  Orientation="Horizontal" Background="Transparent" VerticalAlignment="Bottom">
                 
                 <Menu Background="Transparent">
-                    <MenuItem Header="︾" Background="{StaticResource ResourceKey=MenuBackgroundBrush}">
+                    <MenuItem  Background="{StaticResource ResourceKey=MenuBackgroundBrush}">
+                        <MenuItem.Header>
+                            <Path Data="M1.39511174894869,0L260.308928797022,185.226644135895 516.996032068506,1.90462062496226 516.996032068506,135.698964692536 260.367827722803,318.994985200348 0,132.616399384919 0,1.17795584339183z" 
+                                  Stretch="Uniform" Fill="#FFFFFFFF" Width="16" Height="16" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <TransformGroup.Children>
+                                            <RotateTransform Angle="0" />
+                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                        </TransformGroup.Children>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                        </MenuItem.Header>
                         <MenuItem Header="系统设置" Click="MenuItem_Click" CommandParameter="config"></MenuItem>
                         <MenuItem Header="使用教程" Click="MenuItem_Click" CommandParameter="help"></MenuItem>
                         <MenuItem Header="意见反馈" Click="MenuItem_Click" CommandParameter="feedback"></MenuItem>
@@ -58,7 +71,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
+                    <!--<ColumnDefinition></ColumnDefinition>-->
                 </Grid.ColumnDefinitions>
                 <Grid.Resources>
                     <Style TargetType="Button" BasedOn="{StaticResource SquareButtonStyle}">
@@ -69,7 +82,7 @@
                 </Grid.Resources>
                 <Button x:Name="btnAddGame" Content="添加游戏"  ></Button>
                 <Button x:Name="btnAddScreen" Content="添加屏幕"    Grid.Column="1"></Button>
-                <Button x:Name="btnAddMobileGame" Content="添加手游"   Grid.Column="2"></Button>
+                <!--<Button x:Name="btnAddMobileGame" Content="添加手游"   Grid.Column="2"></Button>-->
             </Grid>
            
             

@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>LiveClient.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MahApps.Metro">
       <HintPath>..\packages\MahApps.Metro.1.1.2.0\lib\net45\MahApps.Metro.dll</HintPath>
@@ -40,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.1.2.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
@@ -64,6 +68,8 @@
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MicroSoft.Shell\SingleInstance.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -71,6 +77,7 @@
     </Compile>
     <Compile Include="Utility\NotifyIconHelper.cs" />
     <Compile Include="Utility\PubModel.cs" />
+    <Compile Include="Utility\WindowExtensions.cs" />
     <Page Include="BackgroundWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -173,6 +180,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="文档.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\UserLogin_Large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DllAsResources\" />
+    <Folder Include="ValueConverters\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Views\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
