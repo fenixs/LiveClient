@@ -17,8 +17,8 @@ namespace LiveClient
     /// </summary>
     public partial class App : Application,ISingleInstanceApp
     {
-        
 
+        
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
@@ -33,6 +33,7 @@ namespace LiveClient
                 login.Show();
                 //MainWindow mainWindow = new MainWindow();
                 //mainWindow.Show();
+                
             }
         }
 

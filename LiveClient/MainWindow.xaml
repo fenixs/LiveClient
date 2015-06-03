@@ -4,7 +4,7 @@
         xmlns:MACtrl="http://metro.mahapps.com/winfx/xaml/controls"
                     WindowStartupLocation="CenterScreen" FontSize="14"
                     BorderThickness="0" BorderBrush="{StaticResource AccentColorBrush}"
-                    ShowMaxRestoreButton="False" FontFamily="Arial,Microsoft YaHei" ShowTitleBar="False" Padding="2"
+                    ShowMaxRestoreButton="False" FontFamily="Arial,SimSun" ShowTitleBar="False" Padding="2" Opacity="0.8"
         Title="" Height="600" Width="800" Icon="Resources/LiveClientNormal.png">
     <MACtrl:MetroWindow.RightWindowCommands>
         <MACtrl:WindowCommands>
@@ -39,7 +39,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
         </Grid.RowDefinitions>
         
         <Grid Grid.Row="1">
@@ -49,6 +49,12 @@
                 <ColumnDefinition Width="32*"></ColumnDefinition>
                 <ColumnDefinition Width="30*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF3F3F3F" Offset="0"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
             <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Button Width="40" Height="40" Style="{StaticResource MetroCircleButtonStyle}" Background="Gray" x:Name="btnVideoList">
                     <Button.Content>
@@ -67,23 +73,77 @@
                 </Button>
                 <TextBlock Text="我的录像" FontSize="10" HorizontalAlignment="Center"></TextBlock>
             </StackPanel>
-            <Grid Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <!--<ColumnDefinition></ColumnDefinition>-->
-                </Grid.ColumnDefinitions>
-                <Grid.Resources>
+            <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="Transparent">
+                <StackPanel.Resources>
                     <Style TargetType="Button" BasedOn="{StaticResource SquareButtonStyle}">
-                        <Setter Property="Width" Value="65"></Setter>
-                        <Setter Property="Height" Value="40"></Setter>
+                        <Setter Property="Width" Value="80"></Setter>
+                        <Setter Property="Height" Value="80"></Setter>
                         <Setter Property="FontSize" Value="12"></Setter>
+                        <Setter Property="BorderThickness" Value="0 2 0 0"></Setter>
+                        <Setter Property="BorderBrush" Value="{StaticResource AccentColorBrush}"></Setter>
+                        <Setter Property="Background" Value="Transparent"></Setter>
                     </Style>
-                </Grid.Resources>
-                <Button x:Name="btnAddGame" Content="添加游戏"  ></Button>
-                <Button x:Name="btnAddScreen" Content="添加屏幕"    Grid.Column="1"></Button>
-                <!--<Button x:Name="btnAddMobileGame" Content="添加手游"   Grid.Column="2"></Button>-->
-            </Grid>
+                </StackPanel.Resources>
+                <Button x:Name="btnAddGame" >
+                    <Button.Content>
+                        <StackPanel VerticalAlignment="Center">
+                            <Path Data="M51.067402,33.434692C49.748699,33.434692 48.679401,34.50367 48.679401,35.820045 48.679401,37.142918 49.748699,38.211994 51.067402,38.211994 52.386398,38.211994 
+                                  53.456402,37.142918 53.456402,35.820045 53.456402,34.50367 52.386398,33.434692 51.067402,33.434692z M56.027599,28.657492C54.708,28.657492 53.638699,29.726469 53.638699,31.047941 
+                                  53.638699,32.364313 54.708,33.434692 56.027599,33.434692 57.346699,33.434692 58.416698,32.364313 58.416698,31.047941 58.416698,29.726469 57.346699,28.657492 56.027599,28.657492z 
+                                  M45.925098,28.657492C44.605801,28.657492 43.535801,29.726469 43.535801,31.042841 43.535801,32.364313 44.605801,33.434692 45.925098,33.434692 47.244099,33.434692 48.311199,32.364313 
+                                  48.311199,31.042841 48.311199,29.726469 47.244099,28.657492 45.925098,28.657492z M50.974602,23.282601C49.655602,23.261702 48.5681,24.30598 48.542702,25.627553 48.5173,26.943927 
+                                  49.566101,28.033803 50.885399,28.059703 52.204399,28.085802 53.292,27.037625 53.317699,25.714751 53.340801,24.398377 52.2939,23.3086 50.974602,23.282601z 
+                                  M12.376,21.267043C11.8796,21.267043,11.4785,21.662834,11.4785,22.161526L11.4785,27.464716 6.1764493,27.464716C5.6799898,27.464716,5.2786298,27.864408,5.2786303,28.358097L5.2786303,
+                                  30.426954C5.2786298,30.920345,5.6799898,31.320135,6.1764493,31.320135L11.4785,31.320135 11.4785,36.628626C11.4785,37.122116,11.8796,37.523109,12.376,37.523109L14.4411,
+                                  37.523109C14.9372,37.523109,15.3386,37.122116,15.3386,36.628626L15.3386,31.320135 20.642599,31.320135C21.1367,31.320135,21.5378,30.920345,21.5378,30.426954L21.5378,28.358097C21.5378,
+                                  27.864408,21.1367,27.464716,20.642599,27.464716L15.3386,27.464716 15.3386,22.161526C15.3386,21.662834,14.9372,21.267043,14.4411,21.267043z 
+                                  M31.872101,13.593999C34.708698,13.594,37.092499,15.229367,37.802101,17.450721L51.620399,17.450721C51.815701,17.450721 51.988602,17.518419 52.147499,17.604218 58.3936,18.515699 
+                                  63.194,23.80739 63.194,30.221159 63.194,37.270515 57.392899,42.983999 50.242199,42.983999 45.2048,42.983999 40.8493,40.145555 38.707001,36.00634L24.484699,36.00634C22.3428,40.145555 
+                                  17.986601,42.983999 12.9495,42.983999 5.7958999,42.983999 0,37.270515 0,30.221159 0,23.535196 5.2148399,18.057508 11.8516,17.507919 11.9411,17.481821 12.0264,17.450721 
+                                  12.124,17.450721L25.940399,17.450721C26.652,15.229367,29.033899,13.594,31.872101,13.593999z M43.528488,0C43.541786,0.10021591 43.815899,2.4556017 42.300545,4.3748426 
+                                  41.283913,5.6650758 39.730858,6.4333582 37.68129,6.6612597 35.814724,6.8682823 34.517078,7.4672608 33.828255,8.4398851 33.051231,9.5348163 33.309441,10.783511 
+                                  33.313641,10.795311L32.030697,11.092C32.013496,11.019103 31.62668,9.2679758 32.754719,7.6781931 33.669453,6.3864899 35.279804,5.6025782 37.537384,5.3525867 39.215141,5.1650934 
+                                  40.467484,4.567585 41.258209,3.5715313 42.43335,2.091115 42.225044,0.18090153 42.223145,0.1614933z" 
+                                  Stretch="Uniform" Fill="#FFFFFFFF" Width="32" Height="32" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <TransformGroup.Children>
+                                            <RotateTransform Angle="0" />
+                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                        </TransformGroup.Children>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                            <TextBlock Text="添加游戏" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+            
+                    </Button.Content>
+                </Button>
+                <Button x:Name="btnAddScreen"  Margin="1 0 0 0">
+                    <Button.Content>
+                        <StackPanel VerticalAlignment="Center">
+                            <Path Data="M37.130002,45.231999L47.366002,45.231999 47.366002,47.789999 37.130002,47.789999z M16.656001,45.231999L26.893,45.231999 26.893,47.789999 16.656001,47.789999z 
+                                  M61.441411,37.940998L64.000001,37.940998 64.000001,47.789997 52.483998,47.789997 52.483998,45.231471 61.441411,45.231471z M2.581253,36.362995L2.5871734,45.320074 9.877011,45.314875 
+                                  9.8790004,47.874795 0.029904366,47.879994 0.022000313,36.364296z M61.418999,20.240999L63.979001,20.240999 63.979001,30.476999 61.418999,30.476999z M0,18.572998L2.5589999,18.572998 
+                                  2.5589999,28.809999 0,28.809999z M54.151101,0L64.000001,0.044281006 63.949898,11.559999 61.390702,11.548298 61.4297,2.591217 54.14,2.5600281z M37.963002,0L48.198998,0 48.198998,2.5599976
+                                  37.963002,2.5599976z M17.49,0L27.727,0 27.727,2.5599976 17.49,2.5599976z M0.044281006,0L11.56,0.050811768 11.548899,2.6095428 2.5919122,2.5704689 2.5592221,9.8610001 0,9.8492489z" 
+                                  Stretch="Uniform" Fill="#FFFFFFFF" Width="32" Height="32" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <TransformGroup.Children>
+                                            <RotateTransform Angle="0" />
+                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                        </TransformGroup.Children>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                            <TextBlock Text="添加屏幕" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                
+            </StackPanel>
+            
            
             
             <StackPanel Orientation="Horizontal" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -96,12 +156,11 @@
                     </Style>
                 </StackPanel.Resources>
                 <Button x:Name="btnInsertText" Content="插入文字" BorderThickness="1 1 0 1"></Button>
-                <Button x:Name="btnInsertImage" Content="插入图片"  BorderThickness="1 1 0 1"></Button>
-                <Button x:Name="btnInsertVideo" Content="插入视频"  BorderThickness="1 1 0 1"></Button>
-                <Button x:Name="btnInsertCam" Content="插入摄像头" BorderThickness="1"></Button>
+                <Button x:Name="btnInsertImage" Content="插入图片"  BorderThickness="0 1 0 1"></Button>                
+                <Button x:Name="btnInsertCam" Content="插入摄像头" BorderThickness="0 1 1 1"></Button>
             </StackPanel>
             
-            <Grid Grid.Column="3">
+            <!--<Grid Grid.Column="3">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
@@ -112,7 +171,17 @@
                 <Grid>
                     <TextBlock x:Name="tbTimeLine" Text="00:00"></TextBlock>
                 </Grid>
-            </Grid>
+            </Grid>-->
+            <StackPanel Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal">
+                <Button x:Name="btnRecord" Style="{StaticResource MetroCircleButtonStyle}" Height="60" Width="60" VerticalAlignment="Center">
+                    <Button.Content>
+                        <Ellipse Fill="#FFFFFFFF" Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                        </Ellipse>
+                    </Button.Content>
+                </Button>
+                <TextBlock x:Name="tbTimeLine" Text="00:00:00" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
         </Grid>
     </Grid>
 </MACtrl:MetroWindow>

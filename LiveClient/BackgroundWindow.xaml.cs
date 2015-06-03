@@ -37,8 +37,8 @@ namespace LiveClient
         void BackgroundWindow_Loaded(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            var ni = NotifyIconHelper.Instance;
-            NotifyIconHelper.Instance.ShowBalloonTip("提示", "程序开始运行");            
+            //var ni = NotifyIconHelper.Instance;
+            //NotifyIconHelper.Instance.ShowBalloonTip("提示", "程序开始运行");            
         }
 
         public static void ExitApp()
@@ -46,7 +46,7 @@ namespace LiveClient
             App.Current.Dispatcher.Invoke(new Action(
                 delegate
                 {
-                    NotifyIconHelper.Instance.Hide();
+                    //NotifyIconHelper.Instance.Hide();
                     App.Current.Shutdown();
                 }
                 ),null);

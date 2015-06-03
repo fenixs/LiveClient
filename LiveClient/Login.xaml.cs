@@ -54,10 +54,12 @@ namespace LiveClient
         void DirectToMainWindow()
         {
             this.Hide();
+            
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
-            BackgroundWindow bgWindow = new BackgroundWindow();
-            bgWindow.Show();
+            App.Current.MainWindow = mainWindow;
+            //BackgroundWindow bgWindow = new BackgroundWindow();
+            //bgWindow.Show();
             
         }
     }

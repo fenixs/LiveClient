@@ -25,7 +25,17 @@ namespace LiveClient
         public MainWindow()
         {
             InitializeComponent();
-            
+            this.Closing += MainWindow_Closing;
+        }
+
+        /// <summary>
+        /// 退出
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            BackgroundWindow.ExitApp();
         }
 
 
