@@ -56,10 +56,16 @@
                 </LinearGradientBrush>
             </Grid.Background>
             <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Button Width="40" Height="40" Style="{StaticResource MetroCircleButtonStyle}" Background="Gray" x:Name="btnVideoList">
+                <Button Width="40" Height="40" Style="{StaticResource MetroCircleButtonStyle}" x:Name="btnVideoList">
                     <Button.Content>
-                        <Path Data="M17.324007,35.400009L64.000006,35.400009 64.000006,42.232008 17.324007,42.232008z M5.2069941,33.610014C8.0759916,33.610014 10.410989,35.950459 10.410989,38.821003 10.410989,41.701551 8.0759916,44.01199 5.2069941,44.01199 2.3279972,44.01199 0,41.701551 0,38.821003 0,35.950459 2.3279972,33.610014 5.2069941,33.610014z M17.324007,17.970008L64.000006,17.970008 64.000006,24.802009 17.324007,24.802009z M5.2069941,16.169955C8.0759916,16.169955 10.410989,18.500199 10.410989,21.3805 10.410989,24.2608 8.0759916,26.581043 5.2069941,26.581043 2.3279972,26.581043 0,24.2608 0,21.3805 0,18.500199 2.3279972,16.169955 5.2069941,16.169955z M17.324007,1.6500092L64.000006,1.6500092 64.000006,8.4820089 17.324007,8.4820089z M5.2069941,0C8.0759916,0 10.410989,2.3204374 10.410989,5.2109833 10.410989,8.0815248 8.0759916,10.411965 5.2069941,10.411965 2.3279972,10.411965 0,8.0815248 0,5.2109833 0,2.3204374 2.3279972,0 5.2069941,0z" 
-                              Stretch="Uniform" Fill="#FFFFFFFF" Width="24" Height="24" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                        <Path Data="M17.324007,35.400009L64.000006,35.400009 64.000006,42.232008 17.324007,42.232008z M5.2069941,33.610014C8.0759916,33.610014 10.410989,35.950459 10.410989,38.821003 
+                              10.410989,41.701551 8.0759916,44.01199 5.2069941,44.01199 2.3279972,44.01199 0,41.701551 0,38.821003 0,35.950459 2.3279972,33.610014 5.2069941,33.610014z 
+                              M17.324007,17.970008L64.000006,17.970008 64.000006,24.802009 17.324007,24.802009z M5.2069941,16.169955C8.0759916,16.169955 10.410989,18.500199 10.410989,21.3805 10.410989,24.2608 
+                              8.0759916,26.581043 5.2069941,26.581043 2.3279972,26.581043 0,24.2608 0,21.3805 0,18.500199 2.3279972,16.169955 5.2069941,16.169955z M17.324007,1.6500092L64.000006,1.6500092 
+                              64.000006,8.4820089 17.324007,8.4820089z M5.2069941,0C8.0759916,0 10.410989,2.3204374 10.410989,5.2109833 10.410989,8.0815248 8.0759916,10.411965 5.2069941,10.411965 2.3279972,10.411965 
+                              0,8.0815248 0,5.2109833 0,2.3204374 2.3279972,0 5.2069941,0z" 
+                              Stretch="Uniform" Fill="{Binding Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}"
+                              Width="16" Height="16" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
                             <Path.RenderTransform>
                                 <TransformGroup>
                                     <TransformGroup.Children>
@@ -104,7 +110,7 @@
                                   41.283913,5.6650758 39.730858,6.4333582 37.68129,6.6612597 35.814724,6.8682823 34.517078,7.4672608 33.828255,8.4398851 33.051231,9.5348163 33.309441,10.783511 
                                   33.313641,10.795311L32.030697,11.092C32.013496,11.019103 31.62668,9.2679758 32.754719,7.6781931 33.669453,6.3864899 35.279804,5.6025782 37.537384,5.3525867 39.215141,5.1650934 
                                   40.467484,4.567585 41.258209,3.5715313 42.43335,2.091115 42.225044,0.18090153 42.223145,0.1614933z" 
-                                  Stretch="Uniform" Fill="#FFFFFFFF" Width="32" Height="32" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                  Stretch="Uniform" Fill="{Binding Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" Width="32" Height="32" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
                                 <Path.RenderTransform>
                                     <TransformGroup>
                                         <TransformGroup.Children>
@@ -127,7 +133,7 @@
                                   9.8790004,47.874795 0.029904366,47.879994 0.022000313,36.364296z M61.418999,20.240999L63.979001,20.240999 63.979001,30.476999 61.418999,30.476999z M0,18.572998L2.5589999,18.572998 
                                   2.5589999,28.809999 0,28.809999z M54.151101,0L64.000001,0.044281006 63.949898,11.559999 61.390702,11.548298 61.4297,2.591217 54.14,2.5600281z M37.963002,0L48.198998,0 48.198998,2.5599976
                                   37.963002,2.5599976z M17.49,0L27.727,0 27.727,2.5599976 17.49,2.5599976z M0.044281006,0L11.56,0.050811768 11.548899,2.6095428 2.5919122,2.5704689 2.5592221,9.8610001 0,9.8492489z" 
-                                  Stretch="Uniform" Fill="#FFFFFFFF" Width="32" Height="32" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                  Stretch="Uniform" Fill="{Binding Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type Button}}}" Width="32" Height="32" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
                                 <Path.RenderTransform>
                                     <TransformGroup>
                                         <TransformGroup.Children>
@@ -173,13 +179,13 @@
                 </Grid>
             </Grid>-->
             <StackPanel Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Horizontal">
-                <Button x:Name="btnRecord" Style="{StaticResource MetroCircleButtonStyle}" Height="60" Width="60" VerticalAlignment="Center">
-                    <Button.Content>
-                        <Ellipse Fill="#FFFFFFFF" Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ToggleButton x:Name="btnRecord" Style="{StaticResource MetroCircleToggleButtonStyle}" Height="60" Width="60" VerticalAlignment="Center">
+                    <ToggleButton.Content>
+                        <Ellipse Fill="{Binding Foreground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type ToggleButton}}}" Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center">
 
                         </Ellipse>
-                    </Button.Content>
-                </Button>
+                    </ToggleButton.Content>
+                </ToggleButton>
                 <TextBlock x:Name="tbTimeLine" Text="00:00:00" VerticalAlignment="Center"></TextBlock>
             </StackPanel>
         </Grid>
