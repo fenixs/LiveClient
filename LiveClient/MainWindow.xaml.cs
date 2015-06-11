@@ -1,4 +1,5 @@
-﻿using MahApps.Metro;
+﻿using LiveClient.ViewModels;
+using MahApps.Metro;
 using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
@@ -22,10 +23,14 @@ namespace LiveClient
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+
+        MainViewModel mainViewModel = new MainViewModel();
+
         public MainWindow()
         {
             InitializeComponent();
             this.Closing += MainWindow_Closing;
+            this.DataContext = mainViewModel;
         }
 
         /// <summary>

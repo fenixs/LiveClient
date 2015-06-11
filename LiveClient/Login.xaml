@@ -27,7 +27,7 @@
                     <RowDefinition Height="40*"></RowDefinition>
                     <RowDefinition Height="40*"></RowDefinition>
                 </Grid.RowDefinitions>
-                <TextBlock Text="测试系统" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Text="直播系统" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                 <StackPanel Grid.Row="1" Margin="5 0" VerticalAlignment="Center">
                     <TextBox x:Name="tbUserName" MACtrl:TextBoxHelper.Watermark="请输入帐号" MACtrl:TextBoxHelper.ClearTextButton="True"></TextBox>
                     <PasswordBox x:Name="tbPassword" MACtrl:TextBoxHelper.Watermark="请输入密码" MACtrl:TextBoxHelper.ClearTextButton="True" Margin="0 10 0 0"></PasswordBox>

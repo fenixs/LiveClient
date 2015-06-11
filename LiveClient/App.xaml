@@ -10,6 +10,8 @@
                 <ResourceDictionary Source="pack://application:,,,/LiveClient;component/Styles/Controls.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="pack://application:,,,/LiveClient;component/Styles/Fonts.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="pack://application:,,,/LiveClient;component/Styles/Accents/BaseDark.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/LiveClient;component/Styles/Icons.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/LiveClient;component/Styles/Controls.CustomSlider.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
