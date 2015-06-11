@@ -11,7 +11,7 @@
     <MACtrl:MetroWindow.RightWindowCommands>
         <MACtrl:WindowCommands>
             <StackPanel  Orientation="Horizontal" Background="Transparent" VerticalAlignment="Bottom">
-                
+                <TextBlock x:Name="tbUserName" Text="当前用户" FontSize="12" FontStyle="Italic" VerticalAlignment="Center"></TextBlock>
                 <Menu Background="Transparent">
                     <MenuItem  Background="{StaticResource ResourceKey=MenuBackgroundBrush}">
                         <MenuItem.Header>
