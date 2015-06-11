@@ -31,6 +31,38 @@ namespace LiveClient
             InitializeComponent();
             this.Closing += MainWindow_Closing;
             this.DataContext = mainViewModel;
+            this.btnVolume.Click += btnVolume_Click;
+            this.btnStart.Click += btnStart_Click;
+        }
+
+        /// <summary>
+        /// 开始直播/结束直播
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void btnStart_Click(object sender, RoutedEventArgs e)
+        {
+            if (mainViewModel.State == Utility.PlayerState.Stop)
+            {
+                mainViewModel.State = Utility.PlayerState.Play;
+                //TODO:开始直播
+            }
+            else if (mainViewModel.State == Utility.PlayerState.Play)
+            {
+                mainViewModel.State = Utility.PlayerState.Stop;
+                //TODO:结束直播
+            }
+        }
+
+
+        /// <summary>
+        /// 音量/静音
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void btnVolume_Click(object sender, RoutedEventArgs e)
+        {
+            mainViewModel.IsMute = !mainViewModel.IsMute;
         }
 
         /// <summary>

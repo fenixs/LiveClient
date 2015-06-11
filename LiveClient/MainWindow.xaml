@@ -56,7 +56,10 @@
                      Visual="{StaticResource appbar_control_stop}"
                      ></VisualBrush>
         <ValueConverters:EnumToBoolConverter x:Key="EnumToBoolConverter" />
-        <ValueConverters:PlayerMuteToVisualBrushConverter x:Key="PlayerMuteToVisualBrushConverter"></ValueConverters:PlayerMuteToVisualBrushConverter>
+        <ValueConverters:PlayerMuteToVisualBrushConverter x:Key="PlayerMuteToVisualBrushConverter"
+                                                           MuteBrush="{StaticResource MuteBrush}"
+                                                           VolumeBrush="{StaticResource VolumeBrush}"
+                                                          ></ValueConverters:PlayerMuteToVisualBrushConverter>
     </MACtrl:MetroWindow.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -77,7 +80,7 @@
                     <GradientStop Color="Black" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Collapsed">
                 <Button Width="40" Height="40" Style="{StaticResource MetroCircleButtonStyle}" x:Name="btnVideoList">
                     <Button.Content>
                         <Path Data="M17.324007,35.400009L64.000006,35.400009 64.000006,42.232008 17.324007,42.232008z M5.2069941,33.610014C8.0759916,33.610014 10.410989,35.950459 10.410989,38.821003 
@@ -215,6 +218,7 @@
                     Style="{DynamicResource SimpleMPMetroCircleButtonStyle}"
                     Height="60"
                     Width="60"
+                    x:Name="btnStart"
                     Content="{Binding Mode=OneWay}">
                     <Button.ContentTemplate>
                         <DataTemplate>
@@ -246,7 +250,7 @@
 
                 <StackPanel VerticalAlignment="Center">
                     <StackPanel Orientation="Horizontal">
-                        <Button Grid.Column="0"
+                        <Button Grid.Column="0" x:Name="btnVolume"
                         HorizontalContentAlignment="Left"
                         Command="{Binding MuteCommand, Mode=OneWay}"
                         ToolTip="静音(m)"
@@ -255,7 +259,7 @@
                             <Rectangle Margin="2"
                                Width="15"
                                Height="15"
-                               Fill="{StaticResource VolumeBrush}" />
+                               Fill="{Binding IsMute,Mode=OneWay,Converter={StaticResource PlayerMuteToVisualBrushConverter}}" />
                         </Button>
                         <util:FormattedSlider 
                                         Style="{StaticResource MetroCircleSlider}"
@@ -266,7 +270,7 @@
                                         LargeChange="25"
                                         AutoToolTipPlacement="TopLeft"
                                         AutoToolTipFormat="{}音量 {0}%"
-                                        Value="{Binding Volume,Mode=OneWay,Converter={StaticResource PlayerMuteToVisualBrushConverter}}" />
+                                        Value="{Binding Volume,Mode=OneWay}" />
                     </StackPanel>
                     <TextBlock x:Name="tbTimeLine" Text="00:00:00" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>    
                 </StackPanel>

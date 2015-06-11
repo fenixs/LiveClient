@@ -1,4 +1,5 @@
-﻿using ReactiveUI;
+﻿using LiveClient.Utility;
+using ReactiveUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,12 @@ namespace LiveClient.ViewModels
     {
         public MainViewModel()
         {
-            //IObservable<bool> Initailized = this.WhenAnyValue(x => true);
+            ////IObservable<bool> Initailized = this.WhenAnyValue(x => true);
 
-            this.MuteCommand = ReactiveCommand.Create(null);
-            this.MuteCommand.Subscribe(x => { this.IsMute = !this.IsMute; });
+            //this.MuteCommand = ReactiveCommand.Create(null);
+            //this.MuteCommand.Subscribe(x => { this.IsMute = !this.IsMute; });
+            this.IsMute = false;
+            _State = PlayerState.Stop;
         }
 
         #region "Properties"
@@ -37,6 +40,15 @@ namespace LiveClient.ViewModels
         {
             get { return _isMute; }
             set { this.RaiseAndSetIfChanged(ref _isMute, value); }
+        }
+
+
+        private PlayerState _State;
+
+        public PlayerState State
+        {
+            get { return _State; }
+            set { this.RaiseAndSetIfChanged(ref _State, value); }
         }
         
 
