@@ -112,6 +112,9 @@
     <Compile Include="ValueConverters\EnumToBoolConverter.cs" />
     <Compile Include="ValueConverters\PlayerMuteToVisualBrushConverter.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\SelectProcess.xaml.cs">
+      <DependentUpon>SelectProcess.xaml</DependentUpon>
+    </Compile>
     <Page Include="BackgroundWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -176,6 +179,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\SelectProcess.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -223,9 +230,7 @@
   <ItemGroup>
     <Resource Include="Resources\UserLogin_Large.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="DllAsResources\MahApps.Metro.dll" />
   </ItemGroup>

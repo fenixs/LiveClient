@@ -1,4 +1,5 @@
 ﻿using LiveClient.ViewModels;
+using LiveClient.Views;
 using MahApps.Metro;
 using MahApps.Metro.Controls;
 using System;
@@ -33,6 +34,21 @@ namespace LiveClient
             this.DataContext = mainViewModel;
             this.btnVolume.Click += btnVolume_Click;
             this.btnStart.Click += btnStart_Click;
+            this.btnAddGame.Click += btnAddGame_Click;
+        }
+
+        #region "Button Click Events"
+
+        /// <summary>
+        /// 添加游戏
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void btnAddGame_Click(object sender, RoutedEventArgs e)
+        {
+            SelectProcess sp = new SelectProcess();
+            sp.Owner = this;
+            sp.ShowDialog();
         }
 
         /// <summary>
@@ -64,6 +80,9 @@ namespace LiveClient
         {
             mainViewModel.IsMute = !mainViewModel.IsMute;
         }
+
+        #endregion
+        
 
         /// <summary>
         /// 退出
