@@ -30,7 +30,7 @@
                         <MenuItem Header="系统设置" Click="MenuItem_Click" CommandParameter="config"></MenuItem>
                         <MenuItem Header="使用教程" Click="MenuItem_Click" CommandParameter="help"></MenuItem>
                         <MenuItem Header="意见反馈" Click="MenuItem_Click" CommandParameter="feedback"></MenuItem>
-                        <MenuItem Header="系统更新" Click="MenuItem_Click" CommandParameter="update"></MenuItem>
+                        <!--<MenuItem Header="系统更新" Click="MenuItem_Click" CommandParameter="update"></MenuItem>-->
                         <MenuItem Header="我要退出" Click="MenuItem_Click" CommandParameter="exit"></MenuItem>
                     </MenuItem>
                 </Menu>
@@ -66,6 +66,19 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="80"></RowDefinition>
         </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TextBlock x:Name="tbMouseInfo" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBlock>
+            <Border x:Name="bdImg" Width="400" Height="300" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"
+                    BorderBrush="{StaticResource AccentColorBrush}" BorderThickness="1">
+                <Border.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem x:Name="bdImgMenu" Header="删除" Click="bdImgMenu_Click"></MenuItem>
+                    </ContextMenu>
+                </Border.ContextMenu>
+                <Image x:Name="imgMain"></Image>
+            </Border>
+        </Grid>
         
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -180,7 +193,7 @@
             <StackPanel Orientation="Horizontal" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <StackPanel.Resources>
                     <Style TargetType="Button" BasedOn="{StaticResource AccentedSquareButtonStyle}">
-                        <Setter Property="Width" Value="60"></Setter>
+                        <Setter Property="Width" Value="80"></Setter>
                         <Setter Property="Height" Value="50"></Setter>     
                         <Setter Property="FontWeight" Value="Thin"></Setter>
                         <Setter Property="FontSize" Value="12"></Setter>

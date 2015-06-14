@@ -112,6 +112,7 @@
     <Compile Include="ValueConverters\EnumToBoolConverter.cs" />
     <Compile Include="ValueConverters\PlayerMuteToVisualBrushConverter.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\PicPlayer.cs" />
     <Compile Include="Views\SelectProcess.xaml.cs">
       <DependentUpon>SelectProcess.xaml</DependentUpon>
     </Compile>

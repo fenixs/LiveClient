@@ -4,6 +4,7 @@ using MahApps.Metro;
 using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace LiveClient
 {
@@ -35,9 +37,117 @@ namespace LiveClient
             this.btnVolume.Click += btnVolume_Click;
             this.btnStart.Click += btnStart_Click;
             this.btnAddGame.Click += btnAddGame_Click;
+            this.btnAddScreen.Click += btnAddScreen_Click;
+            _timer.Tick += _timer_Tick;
+            _timer.Interval = new TimeSpan(40);
+            this.MouseMove += MainWindow_MouseMove;
         }
 
+        
+
+        void MainWindow_MouseMove(object sender, MouseEventArgs e)
+        {
+            System.Windows.Point p = PointToScreen(e.GetPosition(this));
+            tbMouseInfo.Text = string.Format("{0},{1}",p.X,p.Y);
+            
+        }
+
+
         #region "Button Click Events"
+        #region "播放部分"
+        /// <summary>
+        /// 播放时候的timer
+        /// </summary>
+        DispatcherTimer _timer = new DispatcherTimer();
+
+        /// <summary>
+        /// timer中绘制屏幕截图
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void _timer_Tick(object sender, EventArgs e)
+        {            
+            DrawBitmap();
+
+        }
+
+        /// <summary>
+        /// 显示的屏幕截图bitmap源
+        /// </summary>
+        private WriteableBitmap _bitmap = null;
+
+        /// <summary>
+        /// 截取屏幕
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void btnAddScreen_Click(object sender, RoutedEventArgs e)
+        {
+            //测试左上角400*300的播放
+            bdImg.Visibility = System.Windows.Visibility.Visible;
+            //初始化bitmap
+            //暂时为400*300
+            this._bitmap = new WriteableBitmap(400, 300, 96, 96, PixelFormats.Rgb24, null);
+            imgMain.Source = _bitmap;
+            imgMain.RenderTransform = SizeScale(0.5, 0.5);
+            _timer.Start();
+        }
+        /// <summary>
+        /// 截取当前屏幕绘制到bitmap，显示到image中
+        /// </summary>
+        private void DrawBitmap()
+        {
+            /*
+             * 使用writeablebitmap的双缓冲机制绘制当前屏幕对应位置截图到缓冲中
+             * */
+            this._bitmap.Lock();
+            //截图到缓冲区
+            using (Bitmap backBufferBitmap = new Bitmap(400, 300, this._bitmap.BackBufferStride,
+                System.Drawing.Imaging.PixelFormat.Format24bppRgb, this._bitmap.BackBuffer))
+            {
+                using (Graphics g = Graphics.FromImage(backBufferBitmap))
+                {                    
+                    g.CopyFromScreen(new System.Drawing.Point(0, 0), new System.Drawing.Point(0, 0), new System.Drawing.Size(400, 300));
+                    g.Flush();                    
+                }
+            }
+            //推送到显示区域
+            this._bitmap.AddDirtyRect(new Int32Rect(0, 0, 400, 300));
+            this._bitmap.Unlock();
+            
+        }
+
+        /// <summary>
+        /// 显示区域大大小转换
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        private ScaleTransform SizeScale(double x, double y)
+        {
+            ScaleTransform scale = new ScaleTransform();
+            scale.CenterX = 0;
+            scale.CenterY = 0;
+            scale.ScaleX = x;
+            scale.ScaleY = y;
+            return scale;
+        }
+     
+        /// <summary>
+        /// 删除当前截取的屏幕
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bdImgMenu_Click(object sender, RoutedEventArgs e)
+        {
+            _timer.Stop();
+            imgMain.Source = null;
+            bdImg.Visibility = System.Windows.Visibility.Collapsed;
+        }
+
+        #endregion
+
+        
 
         /// <summary>
         /// 添加游戏
@@ -120,20 +230,24 @@ namespace LiveClient
                         }
                     case "help":
                         {
+                            System.Diagnostics.Process.Start("http://www.baidu.com");
                             break;
                         }
                     case "feedback":
                         {
+                            System.Diagnostics.Process.Start("http://www.baidu.com");
                             break;
                         }
                     case "update":
                         {
+                            System.Diagnostics.Process.Start("http://www.baidu.com");
                             break;
                         }
                 }
             }
         }
         #endregion
+
         
 
     }
