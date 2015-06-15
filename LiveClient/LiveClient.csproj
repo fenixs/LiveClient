@@ -112,7 +112,9 @@
     <Compile Include="ValueConverters\EnumToBoolConverter.cs" />
     <Compile Include="ValueConverters\PlayerMuteToVisualBrushConverter.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="Views\PicPlayer.cs" />
+    <Compile Include="Views\CaptureScreenWindow.xaml.cs">
+      <DependentUpon>CaptureScreenWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SelectProcess.xaml.cs">
       <DependentUpon>SelectProcess.xaml</DependentUpon>
     </Compile>
@@ -179,6 +181,10 @@
     <Page Include="Styles\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CaptureScreenWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SelectProcess.xaml">
       <SubType>Designer</SubType>

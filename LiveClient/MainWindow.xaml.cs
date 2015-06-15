@@ -83,14 +83,17 @@ namespace LiveClient
         /// <param name="e"></param>
         void btnAddScreen_Click(object sender, RoutedEventArgs e)
         {
-            //测试左上角400*300的播放
-            bdImg.Visibility = System.Windows.Visibility.Visible;
-            //初始化bitmap
-            //暂时为400*300
-            this._bitmap = new WriteableBitmap(400, 300, 96, 96, PixelFormats.Rgb24, null);
-            imgMain.Source = _bitmap;
-            imgMain.RenderTransform = SizeScale(0.5, 0.5);
-            _timer.Start();
+            ////测试左上角400*300的播放
+            //bdImg.Visibility = System.Windows.Visibility.Visible;
+            ////初始化bitmap
+            ////暂时为400*300
+            //this._bitmap = new WriteableBitmap(400, 300, 96, 96, PixelFormats.Rgb24, null);
+            //imgMain.Source = _bitmap;
+            //imgMain.RenderTransform = SizeScale(0.5, 0.5);
+            //_timer.Start();
+
+            CaptureScreenWindow csw = new CaptureScreenWindow();
+            csw.Show();
         }
         /// <summary>
         /// 截取当前屏幕绘制到bitmap，显示到image中
