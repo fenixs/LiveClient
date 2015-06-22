@@ -36,6 +36,17 @@ namespace LiveClient.Utility
         public static string __Config { get; set; }
 
         /// <summary>
+        /// System Screen Width
+        /// </summary>
+        public static double __ScreenWidth { get; set; }
+
+        /// <summary>
+        /// System Screen Height
+        /// </summary>
+        public static double __ScreenHeight { get; set; }
+
+
+        /// <summary>
         /// 当前系统是32位还是64位
         /// </summary>
         //public static int __OSType { get; set; }

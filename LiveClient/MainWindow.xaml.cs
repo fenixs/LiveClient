@@ -1,4 +1,5 @@
-﻿using LiveClient.ViewModels;
+﻿using LiveClient.Utility;
+using LiveClient.ViewModels;
 using LiveClient.Views;
 using MahApps.Metro;
 using MahApps.Metro.Controls;
@@ -53,8 +54,7 @@ namespace LiveClient
         }
 
 
-        #region "Button Click Events"
-        #region "播放部分"
+        #region "截图播放部分"
         /// <summary>
         /// 播放时候的timer
         /// </summary>
@@ -66,8 +66,8 @@ namespace LiveClient
         /// <param name="sender"></param>
         /// <param name="e"></param>
         void _timer_Tick(object sender, EventArgs e)
-        {            
-            DrawBitmap();
+        {
+            DrawBitmap(400,300,400,300);
 
         }
 
@@ -83,41 +83,62 @@ namespace LiveClient
         /// <param name="e"></param>
         void btnAddScreen_Click(object sender, RoutedEventArgs e)
         {
-            ////测试左上角400*300的播放
-            //bdImg.Visibility = System.Windows.Visibility.Visible;
-            ////初始化bitmap
-            ////暂时为400*300
-            //this._bitmap = new WriteableBitmap(400, 300, 96, 96, PixelFormats.Rgb24, null);
-            //imgMain.Source = _bitmap;
-            //imgMain.RenderTransform = SizeScale(0.5, 0.5);
-            //_timer.Start();
+            //测试左上角400*300的播放
+            bdImg.Visibility = System.Windows.Visibility.Visible;
+            //初始化bitmap
+            //暂时为400*300
+            this._bitmap = new WriteableBitmap(400, 300, 96, 96, PixelFormats.Rgb24, null);
+            imgMain.Source = _bitmap;
+            bdImg.RenderTransform = SizeScale(0.5, 0.5);
+            _timer.Start();
 
-            CaptureScreenWindow csw = new CaptureScreenWindow();
-            csw.Show();
+            //int screenWidth = (int)PubModel.__ScreenWidth;
+            //int screenHeight = (int)PubModel.__ScreenHeight;
+
+            //WriteableBitmap bitmapFullScreen = new WriteableBitmap(screenWidth, screenHeight, 96, 96, PixelFormats.Rgb24, null);
+
+            //bitmapFullScreen.Lock();
+            //using (Bitmap fullSceenBitmap = new Bitmap(screenWidth,screenHeight,bitmapFullScreen.BackBufferStride,
+            //    System.Drawing.Imaging.PixelFormat.Format24bppRgb,bitmapFullScreen.BackBuffer
+            //    ))
+            //{
+            //    using (Graphics g = Graphics.FromImage(fullSceenBitmap))
+            //    {
+            //        g.CopyFromScreen(new System.Drawing.Point(0, 0), new System.Drawing.Point(0, 0),
+            //                            new System.Drawing.Size(screenWidth, screenHeight)
+            //                            );
+            //        g.Flush();
+                    
+            //    }
+            //}
+            //bitmapFullScreen.AddDirtyRect(new Int32Rect(0, 0, screenWidth, screenHeight));
+            //bitmapFullScreen.Unlock();
+            //CaptureScreenWindow csw = new CaptureScreenWindow(bitmapFullScreen);
+            //csw.Show();
         }
         /// <summary>
         /// 截取当前屏幕绘制到bitmap，显示到image中
         /// </summary>
-        private void DrawBitmap()
+        private void DrawBitmap(int bitmapWidth,int bitmapHeight,int graphicWidth,int graphicHeight)
         {
             /*
              * 使用writeablebitmap的双缓冲机制绘制当前屏幕对应位置截图到缓冲中
              * */
             this._bitmap.Lock();
             //截图到缓冲区
-            using (Bitmap backBufferBitmap = new Bitmap(400, 300, this._bitmap.BackBufferStride,
+            using (Bitmap backBufferBitmap = new Bitmap(bitmapWidth, bitmapHeight, this._bitmap.BackBufferStride,
                 System.Drawing.Imaging.PixelFormat.Format24bppRgb, this._bitmap.BackBuffer))
             {
                 using (Graphics g = Graphics.FromImage(backBufferBitmap))
-                {                    
-                    g.CopyFromScreen(new System.Drawing.Point(0, 0), new System.Drawing.Point(0, 0), new System.Drawing.Size(400, 300));
-                    g.Flush();                    
+                {
+                    g.CopyFromScreen(new System.Drawing.Point(0, 0), new System.Drawing.Point(0, 0), new System.Drawing.Size(graphicWidth, graphicHeight));
+                    g.Flush();
                 }
             }
             //推送到显示区域
-            this._bitmap.AddDirtyRect(new Int32Rect(0, 0, 400, 300));
+            this._bitmap.AddDirtyRect(new Int32Rect(0, 0, bitmapWidth, bitmapHeight));
             this._bitmap.Unlock();
-            
+
         }
 
         /// <summary>
@@ -135,7 +156,7 @@ namespace LiveClient
             scale.ScaleY = y;
             return scale;
         }
-     
+
         /// <summary>
         /// 删除当前截取的屏幕
         /// </summary>
@@ -149,6 +170,9 @@ namespace LiveClient
         }
 
         #endregion
+
+        #region "Button Click Events"
+      
 
         
 

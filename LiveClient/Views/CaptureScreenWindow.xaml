@@ -6,7 +6,7 @@
                     BorderBrush="{x:Null}" BorderThickness="0"   WindowStartupLocation="Manual" Left="0" Top="0" Topmost="True"   IsHitTestVisible="False"              
                     Background="Black" ShowInTaskbar="False"
         Title="CaptureScreenWindow" >
-    <Canvas x:Name="canMain" Background="White" Opacity="0.1">
-        
+    <Canvas x:Name="canMain" Background="White">
+        <Image x:Name="imgFullScreen" Canvas.Left="0" Canvas.Top="0"></Image>
     </Canvas>
 </MACtrl:MetroWindow>

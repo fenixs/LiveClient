@@ -22,11 +22,6 @@ namespace LiveClient
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-
-            
-
-            
-           
             {
                 OnInit();
                 Login login = new Login();
@@ -46,6 +41,9 @@ namespace LiveClient
             //TODO:
             PubModel.__StartupPath = System.IO.Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
             this.DispatcherUnhandledException += App_DispatcherUnhandledException;
+
+            PubModel.__ScreenHeight = System.Windows.SystemParameters.PrimaryScreenHeight;
+            PubModel.__ScreenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
         }
 
         /// <summary>

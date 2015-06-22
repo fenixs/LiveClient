@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using LiveClient.Utility;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,21 +22,31 @@ namespace LiveClient.Views
     public partial class CaptureScreenWindow : MetroWindow
     {
 
-        public CaptureScreenWindow()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fullScreenBitmap">当前屏幕的截图</param>
+        public CaptureScreenWindow(WriteableBitmap fullScreenBitmap)
         {
             InitializeComponent();
             //Mahapp.Metro的bug，必须在这里设置AllowTransparency才有效
             this.AllowsTransparency = true;
-            this.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
-            this.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
-            canMain.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
-            canMain.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
+            this.Width = PubModel.__ScreenWidth;
+            this.Height = PubModel.__ScreenHeight;
+            canMain.Width = PubModel.__ScreenWidth;
+            canMain.Height = PubModel.__ScreenHeight;
             this.KeyDown += CaptureScreenWindow_KeyDown;
-            this.Opacity = 0.2;
+            //this.Opacity = 0.2;
+
+            this.imgFullScreen.Width = PubModel.__ScreenWidth;
+            this.imgFullScreen.Height = PubModel.__ScreenHeight;
+            this.imgFullScreen.Source = fullScreenBitmap;       //Add FullScrrenImage to the Image Control
 
             this.MouseLeftButtonDown += CaptureScreenWindow_MouseLeftButtonDown;
             this.MouseMove += CaptureScreenWindow_MouseMove;
             this.MouseLeftButtonUp += CaptureScreenWindow_MouseLeftButtonUp;
+
+            
         }
 
         #region "拖拽截屏"
